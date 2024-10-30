@@ -49,18 +49,20 @@ jobs:
       id: create_release
       uses: softprops/action-gh-release@v1
       with:
-        tag: v${{ github.run_number }}  # Use the run number as the version
+        tag_name: v${{ github.run_number }}  # Use tag_name instead of tag
         name: Release v${{ github.run_number }}  # Release name
         body: |
           ## Release Notes
           - Built on ${{ github.run_id }}
+        draft: false
+        prerelease: false
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
     - name: Upload to Release
       uses: softprops/action-gh-release@v1
       with:
-        tag: v${{ github.run_number }}  # Same tag as the release
+        tag_name: v${{ github.run_number }}  # Use tag_name for the uploaded files
         files: ./output/**  # Adjust the path based on your output location
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
