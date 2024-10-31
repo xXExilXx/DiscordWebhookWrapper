@@ -75,4 +75,4 @@ Feel free to contribute by creating issues or pull requests to improve functiona
 
 ## License
 
-This project is licensed under the MIT License. See [LICENSE](LICENSE) for details.
+This project is licensed under the Apache-2.0 license. See [LICENSE](LICENSE) for details.
