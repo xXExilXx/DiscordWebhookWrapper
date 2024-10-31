@@ -21,10 +21,12 @@ A simple, lightweight C# wrapper for sending messages and embeds to Discord webh
 1. Go to the [Releases](https://github.com/xXExilXx/DiscordWebhookWrapper/releases) page.
 2. Download the latest `.dll` file.
 3. In your Visual Studio project, right-click on **References** > **Add Reference...** and select the downloaded `.dll` file.
+
 **Unity**
 1. In your Unity project, create a folder called **Plugins**.
 2. Download the latest `.dll` file from the [Releases](https://github.com/xXExilXx/DiscordWebhookWrapper/releases) page.
 3. Then drag the `.dll` into the **Plugins** folder.
+   
 ### Usage
 
 #### Initializing the Webhook Client
