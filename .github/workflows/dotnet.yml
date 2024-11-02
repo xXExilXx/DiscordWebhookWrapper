@@ -26,9 +26,6 @@ jobs:
       - name: Publish project
         run: dotnet publish DiscordWebhookWrapper.csproj --configuration Release --output ./output
 
-      - name: Archive DLL
-        run: zip -j output.zip ./output/*.dll
-
   release:
     needs: build
     runs-on: ubuntu-latest
@@ -42,8 +39,11 @@ jobs:
         id: create_release
         uses: actions/create-release@v1
         with:
-          tag_name: v${{ github.run_number }}
-          release_name: "Release ${{ github.run_number }}"
+          tag_name: v${{ env.version }}
+          release_name: Release v${{ env.version }}
+          body: |
+            ## Release Notes
+            - New Build for Commit v${{ env.version }}
           draft: false
           prerelease: false
           token: ${{ secrets.GITHUB_TOKEN }}
@@ -52,6 +52,6 @@ jobs:
         uses: actions/upload-release-asset@v1
         with:
           upload_url: ${{ steps.create_release.outputs.upload_url }}
-          asset_path: ./output.zip
-          asset_name: DiscordWebhookWrapper.zip
-          asset_content_type: application/zip
+          asset_path: ./output/YourLibrary.dll
+          asset_name: YourLibrary.dll
+          asset_content_type: application/octet-stream
